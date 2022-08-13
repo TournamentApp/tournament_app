@@ -1,11 +1,9 @@
-package com.example.team.presentaion
+package com.example.team.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.example.team.R
 import com.example.team.databinding.FragmentTeamBinding
 
 class TeamFragment : Fragment() {
