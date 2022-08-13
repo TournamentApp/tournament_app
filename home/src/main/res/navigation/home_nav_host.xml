@@ -8,6 +8,7 @@
     <include app:graph="@navigation/match_nav_host" />
     <include app:graph="@navigation/profile_nav_host" />
     <include app:graph="@navigation/team_nav_host" />
+    <include app:graph="@navigation/players_nav_host" />
 
     <fragment
         android:id="@+id/homeFragment"
@@ -26,8 +27,9 @@
             app:destination="@id/profile_nav_host" />
 
         <action
-            android:id="@+id/homeFragment_to_teamNav"
-            app:destination="@id/team_nav_host" />
+            android:id="@+id/playersFragment_to_playersNav"
+            app:destination="@id/players_nav_host" />
+
 
     </fragment>
 </navigation>
