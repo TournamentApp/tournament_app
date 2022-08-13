@@ -4,8 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Adriano/AndroidStudioProjects/Tournament/home/src/main/res/layout/activity_home.xml" value="0.2609375" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/account/src/main/res/layout/activity_account.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/account/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/account/src/main/res/layout/fragment_account.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/home/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/home/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/match/src/main/res/layout/activity_match.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/match/src/main/res/layout/content_team.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/match/src/main/res/layout/fragment_match.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/profile/src/main/res/layout/activity_match.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/profile/src/main/res/layout/activity_profile.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/team/src/main/res/layout/activity_team.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Giovani/Desktop/app team/tournament_app/team/src/main/res/layout/fragment_team.xml" value="0.1" />
       </map>
     </option>
   </component>

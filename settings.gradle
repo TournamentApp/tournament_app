@@ -16,3 +16,7 @@ rootProject.name = "Tournament"
 include ':app'
 include ':network'
 include ':home'
+include ':account'
+include ':team'
+include ':match'
+include ':profile'
