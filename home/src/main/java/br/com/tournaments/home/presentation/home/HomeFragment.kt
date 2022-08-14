@@ -16,8 +16,13 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = FragmentHomeBinding.inflate(inflater, container, false).apply {
-        _binding = this
-    }.root
+    ) : View{
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.composeHome.setContent {
+
+        }
+        return binding.root
+    }
 
 }

@@ -34,5 +34,12 @@ class HomeActivity : AppCompatActivity() {
 
         binding.toolbarApp.setupWithNavController(navController, appBarConfiguration)
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val isTopLevelDestination =
+                appBarConfiguration.topLevelDestinations.contains(destination.id)
+            if (!isTopLevelDestination) {
+                binding.toolbarApp.setNavigationIcon(R.drawable.ic_back)
+            }
+        }
     }
 }

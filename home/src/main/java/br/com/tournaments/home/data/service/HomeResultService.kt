@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface HomeResultService {
 
-    @GET("/teams")
+    @GET("teams")
     suspend fun getMatches(): HomeResultRemote
 }

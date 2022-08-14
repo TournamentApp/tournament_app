@@ -6,5 +6,5 @@ import com.squareup.moshi.Json
 data class HomeResultRemote(
     @field:Json(name = "data") val teams: List<HomeResultItemType>
 ) {
-    fun transform() = teams
+    fun transform() = teams.mapNotNull { it.transform() }
 }

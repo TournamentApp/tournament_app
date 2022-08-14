@@ -16,7 +16,7 @@
 
         <action
             android:id="@+id/homeFragment_to_accountNav"
-            app:destination="@id/match_nav_host" />
+            app:destination="@id/account_nav_host" />
 
         <action
             android:id="@+id/homeFragment_to_matchNav"
