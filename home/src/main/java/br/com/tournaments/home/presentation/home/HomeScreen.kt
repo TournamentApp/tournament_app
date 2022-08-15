@@ -33,9 +33,9 @@ fun HomeScreen(
 
     TournamentScene(
         async = state.matches,
-        loading = { },
+        loading = { Text(text = "Loading") },
         error = {
-
+            Text(text = it)
         }
     ) { matches ->
 
@@ -59,6 +59,5 @@ fun HomeScreen(
 @Composable
 @Preview(showBackground = true)
 fun HomeScreenPreview() {
-
     HomeScreen()
 }

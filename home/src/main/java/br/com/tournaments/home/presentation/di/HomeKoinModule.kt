@@ -16,9 +16,9 @@ fun injectHomeKoinModule() = loadKoinModule
 private val loadKoinModule by lazy {
     loadKoinModules(
         listOf(
-            viewModelModule,
+            serviceModule,
             repositoryModule,
-            serviceModule
+            viewModelModule
         )
     )
 }
