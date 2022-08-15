@@ -5,6 +5,6 @@ data class Team(
     val name: String,
     val tag: String,
     val description: String,
-    val image: String,
+    val image: String? = null,
     val user_id: Int
 )

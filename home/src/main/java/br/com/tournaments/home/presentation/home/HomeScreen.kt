@@ -2,11 +2,11 @@ package br.com.tournaments.home.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -17,39 +17,46 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.tournaments.design.TournamentScene
+import br.com.tournaments.design.TournamentTheme
 import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = getViewModel()
-){
-    LaunchedEffect(Unit){
+) {
+    LaunchedEffect(Unit) {
         viewModel.interact(HomeInteractions.LoadMatches)
     }
 
     val state by viewModel.state.collectAsState()
 
-
-    TournamentScene(
-        async = state.matches,
-        loading = { Text(text = "Loading") },
-        error = {
-            Text(text = it)
-        }
-    ) { matches ->
-
+    TournamentTheme {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.Magenta)
+            modifier = Modifier.fillMaxSize()
         ) {
-            matches.forEach { team ->
-                Card(
-                    modifier = Modifier.fillMaxWidth().padding(12.dp),
-                    onClick = {  }
+            TournamentScene(
+                async = state.matches,
+                loading = { Text(text = "Loading") },
+                error = {
+                    Text(text = it)
+                }
+            ) { matches ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Green)
                 ) {
-                    Text(text = team.name)
+                    matches.forEach { team ->
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            onClick = { }
+                        ) {
+                            Text(text = team.name)
+                        }
+                    }
                 }
             }
         }

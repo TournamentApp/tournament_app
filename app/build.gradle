@@ -8,6 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
+        manifestPlaceholders = [usesCleartextTraffic:"true"]
         applicationId "br.com.tournaments"
         minSdk 23
         targetSdk 32
@@ -16,7 +17,6 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_URL", '"https://api.nasa.gov/planetary/"'
     }
 
     buildTypes {

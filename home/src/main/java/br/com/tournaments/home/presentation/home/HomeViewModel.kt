@@ -1,9 +1,7 @@
 package br.com.tournaments.home.presentation.home
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.tournaments.home.domain.entity.HomeResultItemType
 import br.com.tournaments.home.domain.repository.HomeResultRepository
 import br.com.tournaments.network.entity.Async
 import br.com.tournaments.network.entity.onError
@@ -26,9 +24,6 @@ class HomeViewModel(
         }
     }
 
-    //    val itens = listOf<HomeResultItemType>()
-    val itens = MutableLiveData<List<HomeResultItemType>>()
-
     private fun getMatches() = viewModelScope.launch {
         homeResultRepository.getMatches()
             .onSuccess { teams ->
@@ -38,8 +33,12 @@ class HomeViewModel(
                     )
                 }
             }
-            .onError {
-
+            .onError { error ->
+                _state.update {
+                    it.copy(
+                        matches = Async.Error(message = error.message)
+                    )
+                }
             }
     }
 

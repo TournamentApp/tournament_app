@@ -11,7 +11,7 @@ class ApiServiceFactory (
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
-        .baseUrl("http://127.0.0.1:8000/api/")
+        .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClientFactory.create())
         .build()
 
