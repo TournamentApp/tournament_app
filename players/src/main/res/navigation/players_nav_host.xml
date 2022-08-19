@@ -2,7 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/players_nav_host">
+    android:id="@+id/players_nav_host"
+    app:startDestination="@id/playersFragment"
+    >
 
     <fragment android:id="@+id/playersFragment"
         android:name="com.example.players.presentation.PlayersFragment"

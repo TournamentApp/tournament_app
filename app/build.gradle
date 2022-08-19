@@ -44,4 +44,5 @@ dependencies {
 
     implementation project(":network")
     implementation project(":home")
+    implementation project(":players")
 }

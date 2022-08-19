@@ -90,10 +90,11 @@ private fun CardMatch(team: Team) {
     Card(
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier
+            .background(Color.Transparent)
             .width(240.dp)
             .height(280.dp)
             .padding(12.dp),
-        onClick = { }
+
     ) {
         Column(
             modifier = Modifier
