@@ -12,7 +12,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="br.com.tournaments.home.presentation.home.HomeFragment">
+        android:name="br.com.tournaments.home.presentation.home.HomeFragment"
+        android:label="@string/home">
 
         <action
             android:id="@+id/homeFragment_to_accountNav"

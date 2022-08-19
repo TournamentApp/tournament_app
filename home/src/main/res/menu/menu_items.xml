@@ -2,15 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home_menu"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:id="@+id/home_nav_host"
+        android:icon="@drawable/ic_home"
         android:title="@string/home" />
     <item
-        android:id="@+id/team_menu"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/team" />
+        android:id="@+id/search_menu"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search" />
     <item
-        android:id="@+id/match_menu"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:id="@+id/match_nav_host"
+        android:icon="@drawable/ic_sword"
         android:title="@string/match" />
+    <item
+        android:id="@+id/team_nav_host"
+        android:icon="@drawable/ic_my_team"
+        android:title="@string/team" />
+
 </menu>
