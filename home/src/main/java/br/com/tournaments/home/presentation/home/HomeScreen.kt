@@ -11,24 +11,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.End
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -37,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.tournaments.design.TournamentScene
 import br.com.tournaments.design.TournamentTheme
-import br.com.tournaments.design.color.TournamentPallete
+import br.com.tournaments.design.color.TournamentPalette
 import br.com.tournaments.home.R
 import br.com.tournaments.home.domain.entity.Team
 import org.koin.androidx.compose.getViewModel
@@ -67,7 +62,7 @@ fun HomeScreen(
                 Text(
                     text = "Comming up matches",
                     fontSize = 20.sp,
-                    color = Color.White,
+                    color = TournamentPalette.Colors.White,
                     modifier = Modifier.padding(start = 15.dp, top = 10.dp, bottom = 5.dp)
                 )
                 Row(
@@ -89,8 +84,8 @@ fun HomeScreen(
 private fun CardMatch(team: Team) {
     Card(
         shape = RoundedCornerShape(10.dp),
+        backgroundColor = Color.Transparent,
         modifier = Modifier
-            .background(Color.Transparent)
             .width(240.dp)
             .height(280.dp)
             .padding(12.dp),
@@ -99,7 +94,7 @@ private fun CardMatch(team: Team) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF1F2333))
+                .background(TournamentPalette.Colors.BackgroundDark)
         ) {
 
             Image(
@@ -150,7 +145,7 @@ private fun CardMatch(team: Team) {
                 }
                 Button(
                     colors = ButtonDefaults.buttonColors(
-                        backgroundColor = TournamentPallete.Base.Dark20,
+                        backgroundColor = TournamentPalette.Colors.Secondary,
                         contentColor = Color.White
                     ),
                     shape = RoundedCornerShape(10.dp),

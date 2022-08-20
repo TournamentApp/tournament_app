@@ -1,5 +1,6 @@
 package com.example.players.presentation
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,14 +16,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.tournaments.design.TournamentScene
 import br.com.tournaments.design.TournamentTheme
+import br.com.tournaments.design.color.TournamentPalette
+
 import com.example.players.domain.entity.Player
-import com.skydoves.landscapist.coil.CoilImage
 import org.koin.androidx.compose.getViewModel
+import com.example.players.R
 
 @Preview
 @Composable
@@ -71,9 +75,9 @@ fun PlayersScreen(
 @Composable
 private fun CardPlayer(player: Player) {
     Card(
-        shape = RoundedCornerShape(15.dp),
+        shape = RoundedCornerShape(10.dp),
+        backgroundColor = Color.Transparent,
         modifier = Modifier
-            .background(Color.Transparent)
             .fillMaxWidth()
             .height(120.dp)
             .padding(12.dp),
@@ -83,17 +87,16 @@ private fun CardPlayer(player: Player) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF1F2333))
+                .background(TournamentPalette.Colors.BackgroundDark)
         ) {
-
-            CoilImage(
-                imageModel = player.image,
-                contentDescription = "",
+            Image(
+                painter = painterResource(id = R.drawable.player),
                 modifier = Modifier
                     .padding(start = 15.dp, bottom = 15.dp, top = 15.dp)
                     .width(62.dp)
                     .height(62.dp)
-                    .clip(RoundedCornerShape(15.dp))
+                    .clip(RoundedCornerShape(15.dp)),
+                contentDescription = null
             )
             Column(
                 modifier = Modifier
@@ -123,7 +126,9 @@ fun PlayersScreenPreview() {
         Player(
             name = "Dr. Dino Abbott",
             id = 12,
-            image = null
+            image = "https://avatars.dicebear.com/api/micah/CloydJast.svg?backgroundColor=%234767f9&height=150&width=150",
+            createdAt = "",
+            personId = "#1234"
         )
     )
 }
