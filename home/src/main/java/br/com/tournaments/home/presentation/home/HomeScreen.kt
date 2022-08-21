@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import br.com.tournaments.design.TournamentScene
 import br.com.tournaments.design.TournamentTheme
 import br.com.tournaments.design.color.TournamentPalette
+import br.com.tournaments.design.typography.SourceSansPro
 import br.com.tournaments.home.R
 import br.com.tournaments.home.domain.entity.Team
 import org.koin.androidx.compose.getViewModel
@@ -56,12 +57,16 @@ fun HomeScreen(
                 async = state.matches,
                 loading = { Text(text = "Loading") },
                 error = {
-                    Text(text = it)
+                    Text(
+                        text = it,
+                        fontFamily = SourceSansPro
+                    )
                 }
             ) { matches ->
                 Text(
                     text = "Comming up matches",
                     fontSize = 20.sp,
+                    fontFamily = SourceSansPro,
                     color = TournamentPalette.Colors.White,
                     modifier = Modifier.padding(start = 15.dp, top = 10.dp, bottom = 5.dp)
                 )
@@ -90,7 +95,7 @@ private fun CardMatch(team: Team) {
             .height(280.dp)
             .padding(12.dp),
 
-    ) {
+        ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -115,6 +120,7 @@ private fun CardMatch(team: Team) {
                     modifier = Modifier.fillMaxWidth(),
                     text = team.name,
                     color = Color.White,
+                    fontFamily = SourceSansPro,
                     fontSize = 14.sp
                 )
                 Text(
@@ -122,6 +128,7 @@ private fun CardMatch(team: Team) {
                         .fillMaxWidth()
                         .padding(top = 10.dp),
                     text = "Partidas em mapas diversos",
+                    fontFamily = SourceSansPro,
                     color = Color.White,
                     fontSize = 11.sp
                 )
@@ -133,12 +140,14 @@ private fun CardMatch(team: Team) {
                     Text(
                         modifier = Modifier.padding(end = 15.dp),
                         text = "20.03.2021",
+                        fontFamily = SourceSansPro,
                         color = Color.White,
                         fontSize = 8.sp
                     )
                     Text(
                         modifier = Modifier,
                         text = "9:00 PM",
+                        fontFamily = SourceSansPro,
                         color = Color.White,
                         fontSize = 8.sp
                     )
@@ -156,7 +165,11 @@ private fun CardMatch(team: Team) {
                     onClick = { /*TODO*/ },
                     contentPadding = PaddingValues(0.dp)
                 ) {
-                    Text(text = "Assign", fontSize = 12.sp)
+                    Text(
+                        text = "Assign",
+                        fontFamily = SourceSansPro,
+                        fontSize = 12.sp
+                    )
                 }
             }
         }

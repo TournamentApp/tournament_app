@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_nav_host"
     app:startDestination="@id/homeFragment">
 
-    <include app:graph="@navigation/account_nav_host" />
     <include app:graph="@navigation/match_nav_host" />
     <include app:graph="@navigation/profile_nav_host" />
     <include app:graph="@navigation/team_nav_host" />
@@ -16,8 +16,8 @@
         android:label="@string/home">
 
         <action
-            android:id="@+id/homeFragment_to_accountNav"
-            app:destination="@id/account_nav_host" />
+            android:id="@+id/homeFragment_to_accountActivity"
+            app:destination="@id/accountActivity" />
 
         <action
             android:id="@+id/homeFragment_to_matchNav"
@@ -30,7 +30,9 @@
         <action
             android:id="@+id/playersFragment_to_playersNav"
             app:destination="@id/players_nav_host" />
-
-
     </fragment>
+
+    <activity android:id="@+id/accountActivity"
+        android:name="br.com.tournaments.account.AccountActivity"
+        tools:layout="@layout/activity_account"/>
 </navigation>
