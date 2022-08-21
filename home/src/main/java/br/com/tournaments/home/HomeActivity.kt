@@ -2,12 +2,25 @@ package br.com.tournaments.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import br.com.tournaments.design.TournamentTheme
 import br.com.tournaments.home.databinding.ActivityHomeBinding
-import br.com.tournaments.home.presentation.home.HomeViewModel
+import br.com.tournaments.home.presentation.home.*
+import br.com.tournaments.home.presentation.menu.AppBar
+import br.com.tournaments.home.presentation.menu.Drawer
+import br.com.tournaments.home.presentation.menu.DrawerBody
+import br.com.tournaments.home.presentation.menu.MenuItems
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -19,6 +32,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -32,14 +46,52 @@ class HomeActivity : AppCompatActivity() {
             setOf(R.id.homeFragment)
         )
 
-        binding.toolbarApp.setupWithNavController(navController, appBarConfiguration)
+//        binding.toolbarApp.setupWithNavController(navController, appBarConfiguration)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            val isTopLevelDestination =
-                appBarConfiguration.topLevelDestinations.contains(destination.id)
-            if (!isTopLevelDestination) {
-                binding.toolbarApp.setNavigationIcon(R.drawable.ic_back)
+        binding.toolbarApp.setContent {
+            TournamentTheme {
+                val scaffoldState = rememberScaffoldState()
+                val scope = rememberCoroutineScope()
+                Scaffold(
+                    scaffoldState = scaffoldState,
+                    topBar = {
+                        AppBar(
+                            onNavigationIconClick = {
+                                scope.launch {
+                                    scaffoldState.drawerState.open()
+                                }
+                            }
+                        )
+                    },
+                    drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
+                    drawerContent = {
+                        Drawer()
+                        DrawerBody(
+                            items = listOf(
+                                MenuItems(
+                                    title = "Home",
+                                    icon = Icons.Default.Home
+                                ),
+                                MenuItems(
+                                    title = "Settings",
+                                    icon = Icons.Default.Settings
+                                ),
+                                MenuItems(
+                                    title = "Help",
+                                    icon = Icons.Default.Info
+                                ),
+                            ),
+                            onItemClick = {
+                                println("Clicked on ${it.title}")
+                            }
+                        )
+                    }
+                ) {
+
+                }
             }
         }
+
     }
 }
+

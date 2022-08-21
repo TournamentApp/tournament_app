@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <androidx.compose.ui.platform.ComposeView
         android:id="@+id/toolbarApp"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:navigationIcon="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@null"
         app:titleTextColor="@android:color/white" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -23,11 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/background_little_dark"
-        app:layout_constraintTop_toBottomOf="@id/toolbarApp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav_home"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarApp"
         app:navGraph="@navigation/home_nav_host" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -35,12 +35,12 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/background_dark"
-        app:menu="@menu/menu_items"
         app:itemIconTint="@color/secondary"
         app:itemTextColor="@color/secondary"
-        app:titleTextColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_items"
+        app:titleTextColor="@android:color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
