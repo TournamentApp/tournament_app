@@ -25,14 +25,13 @@ import br.com.tournaments.design.TournamentTheme
 import br.com.tournaments.design.color.TournamentPalette
 import br.com.tournaments.players.domain.entity.Player
 import org.koin.androidx.compose.getViewModel
-import com.example.players.R
+import br.com.tournaments.players.R
 
 @Preview
 @Composable
 fun PlayersScreen(
     viewModel: PlayersViewModel = getViewModel()
 ) {
-
     LaunchedEffect(Unit) {
         viewModel.interact(PlayersInteractions.LoadPlayers)
     }
@@ -81,7 +80,6 @@ private fun CardPlayer(player: Player) {
             .height(120.dp)
             .padding(12.dp),
         onClick = { }
-
     ) {
         Row(
             modifier = Modifier

@@ -36,7 +36,6 @@ fun TournamentInput(
     isEnabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
-    focusRequester: FocusRequester = FocusRequester(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onTextChange: (String) -> Unit

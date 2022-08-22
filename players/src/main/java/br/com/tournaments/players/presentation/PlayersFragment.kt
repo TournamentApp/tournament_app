@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 
-
 class PlayersFragment : Fragment() {
 
     override fun onCreateView(
@@ -19,7 +18,5 @@ class PlayersFragment : Fragment() {
                 PlayersScreen()
             }
         }
-
     }
-
 }

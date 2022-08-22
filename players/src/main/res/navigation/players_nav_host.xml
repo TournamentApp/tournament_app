@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/players_nav_host"
-    app:startDestination="@id/playersFragment"
-    >
+    app:startDestination="@id/playersFragment">
 
     <fragment android:id="@+id/playersFragment"
-        android:name="com.example.players.presentation.PlayersFragment"
+        android:name="br.com.tournaments.players.presentation.PlayersFragment"
         tools:layout="@layout/fragment_players" />
 
 </navigation>

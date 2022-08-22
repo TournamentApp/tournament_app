@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
-import androidx.fragment.app.Fragment
+import br.com.tournaments.account.BaseFragment
 
-class SignInFragment : Fragment() {
+class SignInFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -16,8 +16,17 @@ class SignInFragment : Fragment() {
     ) : View {
         return ComposeView(requireContext()).apply {
             setContent {
-                SignInScreen()
+                SignInScreen(
+                    delegate = signInDelegate()
+                )
             }
+        }
+    }
+
+    private fun signInDelegate() = object : SignInDelegate {
+        override fun navToSignUp() {
+            val action = SignInFragmentDirections.navToSignUp()
+            controller.navigate(action)
         }
     }
 }

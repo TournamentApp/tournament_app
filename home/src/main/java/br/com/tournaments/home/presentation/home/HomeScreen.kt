@@ -63,23 +63,28 @@ fun HomeScreen(
                     )
                 }
             ) { matches ->
-                Text(
-                    text = "Comming up matches",
-                    fontSize = 20.sp,
-                    fontFamily = SourceSansPro,
-                    color = TournamentPalette.Colors.White,
-                    modifier = Modifier.padding(start = 15.dp, top = 10.dp, bottom = 5.dp)
-                )
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .horizontalScroll(rememberScrollState()),
-                ) {
-                    matches.forEach { team ->
-                        CardMatch(team)
-                    }
-                }
+                HomeContent(matches)
             }
+        }
+    }
+}
+
+@Composable
+private fun HomeContent(matches: List<Team>) {
+    Text(
+        text = "Comming up matches",
+        fontSize = 20.sp,
+        fontFamily = SourceSansPro,
+        color = TournamentPalette.Colors.White,
+        modifier = Modifier.padding(start = 15.dp, top = 10.dp, bottom = 5.dp)
+    )
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+    ) {
+        matches.forEach { team ->
+            CardMatch(team)
         }
     }
 }
@@ -93,15 +98,13 @@ private fun CardMatch(team: Team) {
         modifier = Modifier
             .width(240.dp)
             .height(280.dp)
-            .padding(12.dp),
-
+            .padding(12.dp)
         ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(TournamentPalette.Colors.BackgroundDark)
         ) {
-
             Image(
                 painter = painterResource(id = R.drawable.game_image),
                 contentScale = ContentScale.Crop,
@@ -179,14 +182,32 @@ private fun CardMatch(team: Team) {
 @Composable
 @Preview(showBackground = true)
 fun HomeScreenPreview() {
-    CardMatch(
-        Team(
-            id = 1,
-            name = "Skill Shortage",
-            tag = "SSA",
-            description = "A",
-            image = null,
-            user_id = 1
+    HomeContent(
+        listOf(
+            Team(
+                id = 1,
+                name = "Skill Shortage",
+                tag = "SSA",
+                description = "A",
+                image = null,
+                user_id = 1
+            ),
+            Team(
+                id = 1,
+                name = "Skill Shortage",
+                tag = "SSA",
+                description = "A",
+                image = null,
+                user_id = 1
+            ),
+            Team(
+                id = 1,
+                name = "Skill Shortage",
+                tag = "SSA",
+                description = "A",
+                image = null,
+                user_id = 1
+            )
         )
     )
 }

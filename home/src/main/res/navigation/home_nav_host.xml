@@ -5,6 +5,7 @@
     android:id="@+id/home_nav_host"
     app:startDestination="@id/homeFragment">
 
+    <include app:graph="@navigation/search_nav_graph" />
     <include app:graph="@navigation/match_nav_host" />
     <include app:graph="@navigation/profile_nav_host" />
     <include app:graph="@navigation/team_nav_host" />
@@ -33,6 +34,6 @@
     </fragment>
 
     <activity android:id="@+id/accountActivity"
-        android:name="br.com.tournaments.account.AccountActivity"
+        android:name="br.com.tournaments.account.activity.AccountActivity"
         tools:layout="@layout/activity_account"/>
 </navigation>

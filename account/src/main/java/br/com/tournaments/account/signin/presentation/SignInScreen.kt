@@ -11,29 +11,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.TextButton
-import androidx.compose.material.TextFieldColors
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -46,7 +39,9 @@ import br.com.tournaments.design.typography.SourceSansPro
 import br.com.tournaments.design.R
 
 @Composable
-fun SignInScreen() {
+fun SignInScreen(
+    delegate: SignInDelegate
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -130,7 +125,7 @@ fun SignInScreen() {
                 .fillMaxWidth()
                 .padding(top = 25.dp)
                 .clickable {
-
+                    delegate.navToSignUp()
                 },
             horizontalArrangement = Arrangement.Center
         ) {
@@ -150,5 +145,8 @@ fun SignInScreen() {
 @Composable
 @Preview(showBackground = true, backgroundColor = 0xFF101424)
 fun SignInScreenPreview() {
-    SignInScreen()
+    fun signUpDelegate() = object : SignInDelegate {
+        override fun navToSignUp() {}
+    }
+    SignInScreen(signUpDelegate())
 }

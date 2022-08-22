@@ -63,5 +63,7 @@ dependencies {
     implementation project(":match")
     implementation project(":profile")
     implementation project(":team")
+    implementation project(":search")
+    implementation project(":teams")
     implementation project(":players")
 }
