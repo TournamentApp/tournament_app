@@ -2,11 +2,8 @@ package br.com.tournaments.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavController
@@ -69,25 +66,16 @@ class HomeActivity : AppCompatActivity() {
                         DrawerBody(
                             items = listOf(
                                 MenuItems(
-                                    title = "Home",
-                                    icon = Icons.Default.Home
-                                ),
-                                MenuItems(
-                                    title = "Settings",
-                                    icon = Icons.Default.Settings
-                                ),
-                                MenuItems(
-                                    title = "Help",
-                                    icon = Icons.Default.Info
+                                    profileName = "Giovani Rodrigues",
+                                    profileImage = R.drawable.game_image
                                 ),
                             ),
                             onItemClick = {
-                                println("Clicked on ${it.title}")
+                                println("Clicked on ${it.profileName}")
                             }
                         )
                     }
                 ) {
-
                 }
             }
         }
