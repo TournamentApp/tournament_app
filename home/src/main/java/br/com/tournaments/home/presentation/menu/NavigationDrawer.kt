@@ -30,13 +30,15 @@ fun Drawer() {
         modifier = Modifier
             .fillMaxWidth()
             .background(TournamentPalette.Colors.BackgroundDark)
+            .clickable {
+
+            }
     ) {
         Image(
             contentScale = ContentScale.Crop,
             painter = painterResource(id = R.drawable.ic_close),
             contentDescription = null,
             modifier = Modifier
-                .clickable { }
                 .background(TournamentPalette.Colors.BackgroundDark)
                 .width(30.dp)
                 .height(30.dp)
