@@ -15,5 +15,8 @@ sealed class TournamentPalette {
         val Pink = Color(0xFFFE54A1)
         val White = Color(0xFFFFFFFF)
         val Black = Color(0xFF000000)
+        val Transparent = Color(0x00000000)
+        val Gray = Color(0xFFF1F1F1)
+        val BackgroundInput = Color(0xFF1F2333)
     }
 }

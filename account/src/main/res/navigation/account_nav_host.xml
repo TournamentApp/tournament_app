@@ -2,11 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/account_nav_host">
+    android:id="@+id/account_nav_host"
+    app:startDestination="@id/signInFragment">
 
-    <fragment android:id="@+id/accountFragment"
-        android:name="com.example.account.presentation.AccountFragment"
-        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="br.com.tournaments.account.AccountFragment"
+        tools:layout="@layout/fragment_account">
 
+        <action
+            android:id="@+id/accountFragment_to_SignIn"
+            app:destination="@id/signInFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="br.com.tournaments.account.signin.presentation.SignInFragment">
+
+        <action
+            android:id="@+id/navToSignUp"
+            app:destination="@id/signUpFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="br.com.tournaments.account.signup.presentation.SignUpFragment">
+
+        <action
+            android:id="@+id/navToSignIn"
+            app:destination="@id/signInFragment" />
+    </fragment>
 </navigation>
